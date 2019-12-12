@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
-number2 = 0
 str1 = " "
 str2 = " "
 if number < 0:
     number = -number
-    str1 = "Last digit of -{} is {} "
+    str1 = "Last digit of -{} is -{} "
 else:
     str1 = "Last digit of {} is {} "
 mod = number % 10
