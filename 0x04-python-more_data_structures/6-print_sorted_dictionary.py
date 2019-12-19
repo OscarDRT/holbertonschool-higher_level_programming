@@ -1,4 +1,4 @@
 def print_sorted_dictionary(a_dictionary):
-    new_dic = sorted(a_dictionary.items())
-    for key in enumerate(new_dic):
-        print("{}: {}".format(key[1][0], key[1][1]))
+    new_dic = list(sorted(a_dictionary.keys()))
+    for key in new_dic:
+        print("{}: {}".format(key, a_dictionary[key]))
