@@ -31,6 +31,10 @@ with the message a must be an integer or b must be an integer:
     9
 
 ‘a’ must be integers or float:
+    >>> add_integer(-3, -6.0)
+    -9
+
+‘a’ must be integers or float:
     >>> add_integer(None, 8)
     Traceback (most recent call last):
     TypeError: a must be an integer
@@ -50,3 +54,26 @@ with the message a must be an integer or b must be an integer:
     Traceback (most recent call last):
     TypeError: b must be an integer
 
+‘a’ must be integers or float:
+    >>> add_integer([1, 2], 8)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+‘b’ must be integers or float:
+    >>> add_integer(8, [1, 2])
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+'type' type return with int:
+    >>> type(add_integer(2, 2))
+    <class 'int'>
+
+‘a’ must be integers or float:
+    >>> add_integer(999e999, 8)
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+‘b’ must be integers or float:
+    >>> add_integer(8, 1e500)
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
