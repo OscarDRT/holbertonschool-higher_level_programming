@@ -21,6 +21,8 @@ def matrix_divided(matrix, div):
             if type(matrix[i]) != list:
                 raise TypeError(msn1)
             leng = len(matrix[0])
+            if leng == 0:
+                raise TypeError(msn1)
             if len(matrix[i]) != leng:
                 raise TypeError(msn2)
             for j in range(len(matrix[i])):
