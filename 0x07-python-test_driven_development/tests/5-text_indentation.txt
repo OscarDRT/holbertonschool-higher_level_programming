@@ -58,7 +58,8 @@ Section types
 =============
 'text' is string:
 >>> text_indentation("Hola")
-Hola>>>
+Hola
+
 'text' is not str:
 >>> text_indentation(5)
 Traceback (most recent call last):

@@ -69,4 +69,4 @@ More parameters:
 
 'size' must be integer and greater or equal to zero:
     >>> print_square(0)
-    <BLANKLINE>
+    >>>
