@@ -27,6 +27,14 @@ with the message a must be an integer or b must be an integer:
     98
 
 ‘a’ must be integers or float:
+    >>> add_integer(4, -1)
+    3
+
+‘a’ must be integers or float:
+    >>> add_integer(-2, -2)
+    -4
+
+‘a’ must be integers or float:
     >>> add_integer(4.0, 6)
     10
 
