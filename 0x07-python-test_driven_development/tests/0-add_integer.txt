@@ -77,3 +77,8 @@ with the message a must be an integer or b must be an integer:
     >>> add_integer(8, 1e500)
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
+
+variable no define:
+    >>> add_integer(a, b)
+    Traceback (most recent call last):
+    NameError: name 'a' is not defined
