@@ -88,7 +88,7 @@ with the message a must be an integer or b must be an integer:
     Traceback (most recent call last):
     TypeError: b must be an integer
 
-variable no define:
+‘variable’ no define:
     >>> add_integer(a, b)
     Traceback (most recent call last):
     NameError: name 'a' is not defined
