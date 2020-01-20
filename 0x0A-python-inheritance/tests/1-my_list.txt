@@ -1,0 +1,19 @@
+====================
+1.   My list module:
+====================
+
+Import module:
+    >>> print_sorted = __import__('1-my_list').MyList
+
+Function:
+=======.
+Class MyList that inherits from list.
+Operations:
+=========
+Public instance method: def print_sorted(self): that prints the list,
+but sorted (ascending sort):
+
+return list sorted:
+    >>> MyList.print_sorted([1, 3, 2])
+    [1, 2, 3]
+
