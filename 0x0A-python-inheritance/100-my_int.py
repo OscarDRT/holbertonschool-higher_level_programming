@@ -5,4 +5,8 @@ class MyInt(int):
         if type(value) == int:
             self.value = value
 
-        
+    def __eq__(self, other):
+        return False
+
+    def __ne__(self, other):
+        return True
