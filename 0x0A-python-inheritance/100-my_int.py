@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""class MyInt that inherits from int
+MyInt is a rebel. MyInt has == and != operators inverted
+"""
+
+
 class MyInt(int):
     def __init__(self, value):
         int.__init__(self)
@@ -6,7 +11,7 @@ class MyInt(int):
             self.value = value
 
     def __eq__(self, other):
-        return False
+        return self.value != other
 
     def __ne__(self, other):
-        return True
+        return self.value == other
