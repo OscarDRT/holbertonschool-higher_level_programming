@@ -14,4 +14,4 @@ def pascal_triangle(n):
             for j in range(len(final[i])):
                 if j != 0 and j != len(final[i - 1]):
                     final[i][j] = final[i - 1][j] + final[i - 1][j - 1]
-        return final
+    return final
