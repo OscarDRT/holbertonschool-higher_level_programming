@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def pascal_triangle(n):
     if n <= 0:
-        my_list = [[]]
+        my_list = []
     else:
         final = []
         for index in range(1, n + 1):
