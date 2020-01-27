@@ -1,13 +1,17 @@
 #!/usr/bin/python3
 import json
 import turtle
+"""
+This class will be the “base” of all other classes
+"""
 
 
 class Base:
-
+    """Class base"""
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """initialize"""
         if id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
@@ -16,6 +20,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """json string"""
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         else:
@@ -23,6 +28,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """save file"""
         with open(cls.__name__ + ".json", "w") as f:
             if list_objs is None:
                 return f.write([])
@@ -34,6 +40,7 @@ class Base:
                 return f.write(cls.to_json_string(my_list))
 
     def from_json_string(json_string):
+        """from json"""
         if json_string is None or len(json_string) == 0:
             return []
         else:
@@ -41,12 +48,14 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """Create"""
         dummy = cls(1, 1, 1, 1)
         dummy.update(**dictionary)
         return dummy
 
     @classmethod
     def load_from_file(cls):
+        """load file"""
         my_lis = []
         try:
             with open(cls.__name__ + ".json", "r") as f:
@@ -60,6 +69,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        """draw figure"""
         list_objsrec = []
         for obj_rec in list_rectangles:
             dicts_rec = obj_rec.to_dictionary()
