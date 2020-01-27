@@ -53,30 +53,31 @@ class Rectangle(Base):
         if kwargs is not None:
             for key, value in kwargs.items():
                 if type(value) is not int:
-                    raise TypeError("%s must be an integer" %(key))
+                    raise TypeError("%s must be an integer" % (key))
                 elif value <= 0:
-                    raise ValueError("%s must be > 0" %(key))
+                    raise ValueError("%s must be > 0" % (key))
 
     def vali_xy(self, **kwargs):
         if kwargs is not None:
             for key, value in kwargs.items():
                 if type(value) is not int:
-                    raise TypeError("%s must be an integer" %(key))
+                    raise TypeError("%s must be an integer" % (key))
                 elif value < 0:
-                    raise ValueError("%s must be >= 0" %(key))
+                    raise ValueError("%s must be >= 0" % (key))
 
     def area(self):
         return (self.__width * self.__height)
 
     def display(self):
-        x = ((" " * self.__x) + ("#" * self.__width) + "\n") * (self.__height - 1)
+        w = (self.__height - 1)
+        x = ((" " * self.__x) + ("#" * self.__width) + "\n") * w
         y = (" " * self.__x) + ("#" * self.__width)
         z = "\n" * self.__y
         print(z + x + y)
 
     def __str__(self):
-        return ("[Rectangle] (%d) %d/%d - %d/%d"
-        %(self.id, self.__x, self.__y, self.__width, self.__height))
+        m = "[Rectangle] ({}) {}/{} - {}/{}"
+        return m.format(self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
         if len(args) != 0:
