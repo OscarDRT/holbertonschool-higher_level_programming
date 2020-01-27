@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import json
+import turtle
 
 
 class Base:
@@ -56,3 +57,39 @@ class Base:
                 return my_lis
         except IOError:
             return my_lis
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        list_objsrec = []
+        for obj_rec in list_rectangles:
+            dicts_rec = obj_rec.to_dictionary()
+            list_objsrec.append(dicts_rec)
+        for draw in list_objsrec:
+            rectangle = turtle.Turtle()
+            rectangle.penup()
+            rectangle.setposition(draw["x"], draw["y"])
+            rectangle.pendown()
+            rectangle.color("red", "black")
+            rectangle._delay(35)
+            for leng in range(2):
+                rectangle.forward(draw["width"])
+                rectangle.left(90)
+                rectangle.forward(draw["height"])
+                rectangle.left(90)
+        turtle.clearscreen()
+
+        list_objsqure = []
+        for obj_square in list_squares:
+            dicts_rec = obj_square.to_dictionary()
+            list_objsqure.append(dicts_rec)
+        for draw2 in list_objsqure:
+            square = turtle.Turtle()
+            square.penup()
+            square.setposition(draw2["x"], draw2["y"])
+            square.pendown()
+            square.color("red", "black")
+            square._delay(35)
+            for leng in range(4):
+                square.forward(draw2["size"])
+                square.left(90)
+        turtle.exitonclick()
