@@ -86,6 +86,37 @@ class Base:
         except IOError:
             return my_lis
 
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        save file
+        """
+        with open(cls.__name__ + ".csv", "w") as f:
+            my_list = []
+            if list_objs is None:
+                f.write(cls.to_json_string(my_list))
+            else:
+                for obj in list_objs:
+                    my_dict = obj.to_dictionary()
+                    my_list.append(my_dict)
+                return f.write(cls.to_json_string(my_list))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        load file
+        """
+        my_lis = []
+        try:
+            with open(cls.__name__ + ".csv", "r") as f:
+                contents = f.read()
+                objs = cls.from_json_string(contents)
+                for new in objs:
+                    my_lis.append(cls.create(**new))
+                return my_lis
+        except IOError:
+            return my_lis
+
     @staticmethod
     def draw(list_rectangles, list_squares):
         """
