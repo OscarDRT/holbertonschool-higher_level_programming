@@ -1,20 +1,22 @@
 #!/usr/bin/python3
-import json
-import turtle
 """
 This class will be the “base” of all other classes
 """
 
 
+import json
+import turtle
+
+
 class Base:
     """
-        Class base
+    Class base
     """
     __nb_objects = 0
 
     def __init__(self, id=None):
         """
-            initialize
+        initialize
         """
         if id is None:
             Base.__nb_objects += 1
@@ -25,7 +27,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """
-            json string
+        json string
         """
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
@@ -35,7 +37,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """
-            save file
+        save file
         """
         with open(cls.__name__ + ".json", "w") as f:
             if list_objs is None:
@@ -49,7 +51,7 @@ class Base:
 
     def from_json_string(json_string):
         """
-            from json
+        from json
         """
         if json_string is None or len(json_string) == 0:
             return []
@@ -59,7 +61,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """
-            Create
+        Create
         """
         dummy = cls(1, 1, 1, 1)
         dummy.update(**dictionary)
@@ -68,7 +70,7 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """
-            load file
+        load file
         """
         my_lis = []
         try:
@@ -84,7 +86,7 @@ class Base:
     @staticmethod
     def draw(list_rectangles, list_squares):
         """
-            draw figure
+        draw figure
         """
         list_objsrec = []
         for obj_rec in list_rectangles:
