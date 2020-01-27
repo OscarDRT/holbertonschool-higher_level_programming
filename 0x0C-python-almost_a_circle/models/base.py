@@ -40,10 +40,10 @@ class Base:
         save file
         """
         with open(cls.__name__ + ".json", "w") as f:
+            my_list = []
             if list_objs is None:
-                return f.write([])
+                f.write(cls.to_json_string(my_list))
             else:
-                my_list = []
                 for obj in list_objs:
                     my_dict = obj.to_dictionary()
                     my_list.append(my_dict)
