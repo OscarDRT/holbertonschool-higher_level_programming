@@ -24,11 +24,7 @@ if __name__ == '__main__':
 
     query_states = cur.fetchall()
 
-    for row in range(len(query_states)):
-        if row != len(query_states) - 1:
-            print(query_states[row][0], end=", ")
-        else:
-            print(query_states[row][0])
+    print(", ".join([row[0] for row in query_states]))
 
     cur.close()
     db.close()
