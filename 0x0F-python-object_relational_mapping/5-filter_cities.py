@@ -14,21 +14,21 @@ if __name__ == '__main__':
                          passwd=sys.argv[2],
                          db=sys.argv[3])
     name = sys.argv[4]
-    sql = """SELECT id, name
-             FROM cities
-             WHERE state_id =
-                   (SELECT id
-                    FROM states
-                    WHERE `name` = %s) ORDER BY id ASC;"""
+    sql = """SELECT cities.name
+             FROM states, cities
+             WHERE states.id = cities.state_id
+             AND states.name = %s
+             ORDER BY cities.id ASC"""
     cur = db.cursor()
     cur.execute(sql, (name,))
 
-    query_rows = cur.fetchall()
+    query_states = cur.fetchall()
 
-    for row in range(len(query_rows)):
-        if row != (len(query_rows) - 1):
-            print(query_rows[row][1], end=", ")
+    for row in range(len(query_states)):
+        if row != len(query_states) - 1:
+            print(query_states[row][0], end=", ")
         else:
-            print(query_rows[row][1])
+            print(query_states[row][0])
+
     cur.close()
     db.close()
