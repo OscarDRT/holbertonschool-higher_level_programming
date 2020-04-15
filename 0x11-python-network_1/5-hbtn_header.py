@@ -6,5 +6,8 @@ from sys import argv
 
 if __name__ == "__main__":
     url = argv[1]
-    pag = requests.get(url)
-    print(pag.headers["X-Request-Id"])
+    try:
+        pag = requests.get(url)
+        print(pag.headers["X-Request-Id"])
+    except:
+        pass
