@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-var strings = [
+const strings = [
   'C is fun',
   'Python is cool',
   'Javascript is amazing'
