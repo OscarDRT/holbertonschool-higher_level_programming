@@ -8,13 +8,12 @@ request.get(url, (err, response, body) => {
   if (err) { console.log(err); } else {
     const todos = JSON.parse(body);
     todos.forEach(element => {
-      if (!(obj[element.userId])) {
-        obj[element.userId] = 0;
-      }
-    });
-    todos.forEach(element => {
-      if (element.completed === true) {
-        obj[element.userId] += 1;
+      if (element.completed) {
+        if (!(obj[element.userId])) {
+          obj[element.userId] = 1;
+        } else {
+          obj[element.userId] += 1;
+        }
       }
     });
   }
