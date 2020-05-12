@@ -10,4 +10,5 @@ request.get(url, function (error, response, body) {
     const obj = JSON.parse(body);
     console.log(obj.title);
   }
+  else {console.log(error)}
 });
