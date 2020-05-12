@@ -8,5 +8,5 @@ request(url, function (error, response, body) {
     console.log(error);
     return;
   }
-  console.log('Code:', response.statusCode); // Print the response status code if a response was received
+  console.log('Code:', response.statusCode);
 });
