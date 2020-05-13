@@ -3,15 +3,17 @@
 const request = require('request');
 const url = process.argv[2];
 
-request.get(url, function (error, response, body) {
-  let count = 0;
-  let obj = JSON.parse(body);
-  obj = obj.results;
-  obj.forEach(element => {
-    const character = element.characters;
-    if (character.includes('https://swapi-api.hbtn.io/api/people/18/')) {
-      count++;
-    }
-  });
-  console.log(count);
+request.get(url, (error, response, body) => {
+  if (error) { console.log(error); } else {
+    const movies = JSON.parse(body).results;
+    let count = 0;
+
+    movies.forEach(element => {
+      const characters = element.characters;
+      characters.forEach(character => {
+        if (character.includes('18')) { count++; }
+      });
+    });
+    console.log(count);
+  }
 });
